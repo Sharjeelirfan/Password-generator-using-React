@@ -1,0 +1,71 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+}
+
+#top{
+  display: flex;
+  /* border: 1px solid ; */
+}
+#showData{
+  width: 300px;
+  background-color: white;
+  height: 29px;
+  color: black;
+  margin-top: 19.5px;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px ;
+}
+#generateBtn{
+  /* width: 60px; */
+  height: 31px;
+  border-radius: 5px ;
+  border: none;
+  margin-top: 19.5px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+#generateBtn:active{
+  background-color: rgb(90, 90, 209);
+}
+#copyBtn{
+  height: 25px;
+  margin-top: 15px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+#copyBtn:active{
+  background-color: rgb(90, 90, 209);
+  
+
+}
+#bottom{
+  display: flex;
+  /* border: 1px solid; */
+}
+#rangeinp{
+  background-color: rgb(255, 255, 255);
+  color: pink;
+  
+  
+}
+#checkNum{
+  margin-left: 20px;
+}
+#labelForCheckNum{
+  margin-top: 15px;
+  
+  }
+  #checkCharac{
+    margin-left: 20px;
+  }
+#labelForCheckCharac{
+  margin-top: 15px;
+  
+  }
