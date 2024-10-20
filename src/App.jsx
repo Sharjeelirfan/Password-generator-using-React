@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -6,13 +6,14 @@ function App() {
   let [pass, setPass] = useState("");
   let [numberAllowed, setNumberAllowed] = useState(false);
   let [charAllowed, setCharAllowed] = useState(false);
+  let [copyPassword , setCopyPass] = useState(false)
 
   let handleNumberAllowed = (event) =>{
     setNumberAllowed(event.target.checked) 
   }
   let handleCharAllowed = (event) =>{
     setCharAllowed(event.target.checked)
-    console.log(charAllowed);
+    // console.log(charAllowed);
     
   }
   let handleRange = (event) => {
@@ -34,8 +35,18 @@ function App() {
     }
   };
 
+  useEffect(() =>{
+    createPass()
+  } ,[rangeVal , numberAllowed , charAllowed])
+
   let copyPass = () =>{
     window.navigator.clipboard.writeText(pass)
+    setCopyPass(true)
+
+    setTimeout(() => {
+      setCopyPass(false)
+      
+    }, 2000);
   }
   // createPass()
   // console.log(pass);
@@ -48,8 +59,8 @@ function App() {
         <h1>Password Generator</h1>
         <div id="top">
           <input id="showData" value={pass} readOnly />
-          <button onClick={createPass} id="generateBtn">
-            Generate
+          <button id="copyBtn" onClick={copyPass}>
+            {copyPassword ? "Copied" : "Copy"}{" "}
           </button>
         </div>
         <div id="bottom">
@@ -58,6 +69,9 @@ function App() {
             id="rangeinp"
             onChange={handleRange}
             type="range"
+            min={6}
+            max={20}
+            // maxLength={20}
           />
           <p>{rangeVal}</p>
           <input
@@ -78,7 +92,6 @@ function App() {
           <label id="labelForCheckCharac" htmlFor="checkCharac">
             Characters
           </label>
-          <button id="copyBtn" onClick={copyPass}>Copy</button>
         </div>
       </div>
     </>
